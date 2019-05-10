@@ -1,10 +1,16 @@
 const initialState = {
-  todo_list: [],
-  new_todo: {}
+  todoList: [],
+  newTodo: {}
 };
 
 export default (state = initialState, action) => {
-  console.log(action);
-
-  return state;
+  switch (action.type) {
+    case "FETCH_DATA":
+      return {
+        ...state,
+        todoList: action.payload
+      };
+    default:
+      return state;
+  }
 };
